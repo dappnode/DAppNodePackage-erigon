@@ -11,7 +11,7 @@ services:
       - 30303/udp
     restart: unless-stopped
     volumes:
-      - "data:/root/.local/share/erigon"
+      - "data:/root/.local/share"
     environment:
       ERIGON_EXTRA_OPTS: ""
   rpcdaemon:
