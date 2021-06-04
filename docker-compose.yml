@@ -1,0 +1,27 @@
+version: "3.4"
+services:
+  erigon:
+    image: "erigon.erigon.dnp.dappnode.eth:0.1.0"
+    build:
+      context: erigon
+      args:
+        UPSTREAM_VERSION: v2021.05.04
+    ports:
+      - "30303"
+      - 30303/udp
+    restart: unless-stopped
+    volumes:
+      - "data:/root/.local/share/erigon"
+    environment:
+      ERIGON_EXTRA_OPTS: ""
+  rpcdaemon:
+    image: "rpcdaemon.erigon.dnp.dappnode.eth:0.1.0"
+    build:
+      context: rpcdaemon
+      args:
+        UPSTREAM_VERSION: v2021.05.04
+    environment:
+      RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
+    restart: unless-stopped
+volumes:
+  data: {}

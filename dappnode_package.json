@@ -1,0 +1,29 @@
+{
+  "name": "erigon.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "shortDescription": "Erigon is a fork of Go-Ethereum with focus on performance.",
+  "description": "Alternative implementation of Ethereum (Eth 1.x), derived from go-ethereum. The main difference between Erigon and go-ethereum is in the way the database is used to store and access the Ethereum state and its history. This change has a profound effect on many parts of the code. Currently, erigon only supports full sync from genesis block, but it will support snapshot sync which is more efficient than fast sync and more secure than warp sync. Erigon is also used as a platform for the research into Stateless Ethereum.",
+  "upstreamVersion": "v2021.05.04",
+  "upstreamRepo": "ledgerwatch/erigon",
+  "upstreamArg": "UPSTREAM_VERSION",
+  "type": "service",
+  "chain": "ethereum",
+  "categories": ["Developer tools"],
+  "architectures": ["linux/amd64"],
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "contributors": [
+    "Eduardo Antuña <eduadiez@gmail.com> (https://github.com/eduadiez)"
+  ],
+  "links": {
+    "homepage": "https://github.com/ledgerwatch/erigon"
+  },
+  "mainService": "rpcdaemon",
+  "license": "GLP-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dappnode/DAppNodePackage-erigon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-erigon/issues"
+  }
+}
