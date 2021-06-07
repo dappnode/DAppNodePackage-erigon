@@ -1,8 +1,8 @@
 {
   "name": "erigon.dnp.dappnode.eth",
   "version": "0.1.0",
-  "shortDescription": "Erigon is a fork of Go-Ethereum with focus on performance.",
-  "description": "Alternative implementation of Ethereum (Eth 1.x), derived from go-ethereum. The main difference between Erigon and go-ethereum is in the way the database is used to store and access the Ethereum state and its history. This change has a profound effect on many parts of the code. Currently, erigon only supports full sync from genesis block, but it will support snapshot sync which is more efficient than fast sync and more secure than warp sync. Erigon is also used as a platform for the research into Stateless Ethereum.",
+  "shortDescription": "Ethereum client on the efficiency frontier, written in Go",
+  "description": "Erigon is a next generation Ethereum client that introduces several new concepts:\n\n* A modular client design, enabling parallelized development of the client\n\n *New (`flat`) model of storing Ethereum state, allowing a lower disk footprint\n\n* Preprocessing of data outside of the storage engine, making database write operations faster by a magnitude\n\n *Staged synchronization technique, allowing very fast synchronization",
   "upstreamVersion": "v2021.06.02",
   "upstreamRepo": "ledgerwatch/erigon",
   "upstreamArg": "UPSTREAM_VERSION",
