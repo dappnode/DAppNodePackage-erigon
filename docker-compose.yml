@@ -5,7 +5,7 @@ services:
     build:
       context: erigon
       args:
-        UPSTREAM_VERSION: v2021.06.03
+        UPSTREAM_VERSION: v2021.06.05
     ports:
       - "30303"
       - 30303/udp
@@ -19,7 +19,7 @@ services:
     build:
       context: rpcdaemon
       args:
-        UPSTREAM_VERSION: v2021.06.03
+        UPSTREAM_VERSION: v2021.06.05
     environment:
       RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
     restart: unless-stopped
