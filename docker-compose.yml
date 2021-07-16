@@ -5,13 +5,13 @@ services:
     build:
       context: erigon
       args:
-        UPSTREAM_VERSION: v2021.07.01
+        UPSTREAM_VERSION: v2021.07.03
     ports:
       - "30303"
       - 30303/udp
     restart: unless-stopped
     volumes:
-      - "data:/root/.local/share"
+      - "data:/var/lib"
     environment:
       ERIGON_EXTRA_OPTS: ""
   rpcdaemon:
@@ -19,7 +19,7 @@ services:
     build:
       context: rpcdaemon
       args:
-        UPSTREAM_VERSION: v2021.07.01
+        UPSTREAM_VERSION: v2021.07.03
     environment:
       RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
     restart: unless-stopped
