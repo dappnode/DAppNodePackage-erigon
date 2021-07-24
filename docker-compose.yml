@@ -5,13 +5,15 @@ services:
     build:
       context: erigon
       args:
-        UPSTREAM_VERSION: v2021.05.04
+        UPSTREAM_VERSION: v2021.07.04
     ports:
-      - "30303"
-      - 30303/udp
+      - "30303:30303/tcp"
+      - "30303:30303/udp"
+      - "30304:30304/tcp"
+      - "30304:30304/udp"
     restart: unless-stopped
     volumes:
-      - "data:/root/.local/share"
+      - "data:/var/lib/erigon"
     environment:
       ERIGON_EXTRA_OPTS: ""
   rpcdaemon:
@@ -19,9 +21,13 @@ services:
     build:
       context: rpcdaemon
       args:
-        UPSTREAM_VERSION: v2021.05.04
+        UPSTREAM_VERSION: v2021.07.04
+    pid: service:erigon # Use erigon's PID namespace. It's required to open Erigon's DB from another process (RPCDaemon local-mode)
     environment:
       RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
     restart: unless-stopped
+    volumes:
+      - "rpc:/var/lib/erigon"
 volumes:
   data: {}
+  rpc: {}
