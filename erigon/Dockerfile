@@ -2,6 +2,8 @@ ARG UPSTREAM_VERSION
 
 FROM thorax/erigon:${UPSTREAM_VERSION}
 
+USER root
+
 ENTRYPOINT [ "sh", "-c", "exec erigon \ 
     --datadir=/var/lib/erigon \
     --metrics \
