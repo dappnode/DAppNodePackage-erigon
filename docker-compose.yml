@@ -7,10 +7,10 @@ services:
       args:
         UPSTREAM_VERSION: v2021.07.04
     ports:
-      - "30303:30303/tcp"
-      - "30303:30303/udp"
-      - "30304:30304/tcp"
-      - "30304:30304/udp"
+      - "30303/tcp"
+      - "30303/udp"
+      - "30304/tcp"
+      - "30304/udp"
     restart: unless-stopped
     volumes:
       - "data:/var/lib/erigon"
