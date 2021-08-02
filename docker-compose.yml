@@ -18,6 +18,8 @@ services:
       ERIGON_EXTRA_OPTS: ""
   rpcdaemon:
     image: "rpcdaemon.erigon.dnp.dappnode.eth:0.1.0"
+    depends_on:
+      - erigon
     build:
       context: rpcdaemon
       args:
