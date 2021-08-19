@@ -9,3 +9,4 @@ RUN chmod u+x /usr/bin/entrypoint.sh
 
 ENTRYPOINT [ "/usr/bin/entrypoint.sh" ]
 
+
