@@ -26,5 +26,13 @@
   },
   "bugs": {
     "url": "https://github.com/dappnode/DAppNodePackage-erigon/issues"
-  }
+  },
+  "exposable": [
+    {
+      "name": "Erigon JSON RPC",
+      "description": "JSON RPC endpoint for Erigon mainnet",
+      "serviceName": "rpcdaemon",
+      "port": 8545
+    }
+  ]
 }
