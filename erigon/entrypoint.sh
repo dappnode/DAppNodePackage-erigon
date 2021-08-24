@@ -19,9 +19,9 @@ fi
 
 exec erigon --datadir=${DATADIR} \
     --metrics \
-    --metrics.addr=\"0.0.0.0\" \
-    --metrics.port=\"6060\" \
-    --private.api.addr=\"0.0.0.0:9090\" \
+    --metrics.addr=0.0.0.0 \
+    --metrics.port=6060 \
+    --private.api.addr=0.0.0.0:9090 \
     --pprof \
     --pprof.addr=0.0.0.0 \
     --pprof.port=6061 \
