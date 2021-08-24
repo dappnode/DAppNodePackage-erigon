@@ -5,7 +5,6 @@ FROM thorax/erigon:${UPSTREAM_VERSION}
 USER root
 
 ENTRYPOINT [ "sh", "-c", "exec rpcdaemon \
-    --datadir=/home/erigon/.local/share \
     --private.api.addr=\"erigon:9090\" \
     --http.addr=\"0.0.0.0\" \
     --http.vhosts=\"*\" \
