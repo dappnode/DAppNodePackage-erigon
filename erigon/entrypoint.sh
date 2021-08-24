@@ -9,7 +9,7 @@
 
 DATADIR="/home/erigon/.local/share"
 
-if [ ! -d "$DATADIR/erigon/chaindata" ]; then
+if [ -d "$DATADIR/erigon/chaindata" ]; then
     mv "$DATADIR/erigon/chaindata" "$DATADIR"
 fi
 
