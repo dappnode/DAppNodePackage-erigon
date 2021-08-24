@@ -5,7 +5,7 @@ FROM thorax/erigon:${UPSTREAM_VERSION}
 USER root
 
 ENTRYPOINT [ "sh", "-c", "exec erigon \ 
-    --datadir=/home/erigon/.local/share/erigon \
+    --datadir=/home/erigon/.local/share \
     --metrics \
     --metrics.addr=\"0.0.0.0\" \
     --metrics.port=\"6060\" \
