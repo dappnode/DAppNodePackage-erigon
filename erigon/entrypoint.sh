@@ -1,4 +1,4 @@
-#!/bin/sh -c
+#!/bin/sh
 
 #####################
 # Datadir migration #
