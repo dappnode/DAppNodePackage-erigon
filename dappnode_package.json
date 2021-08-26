@@ -3,7 +3,7 @@
   "version": "0.1.8",
   "shortDescription": "Ethereum client on the efficiency frontier, written in Go",
   "description": "Erigon is a next generation Ethereum client that introduces several new concepts:\n\n* A modular client design, enabling parallelized development of the client\n\n* New (`flat`) model of storing Ethereum state, allowing a lower disk footprint\n\n* Preprocessing of data outside of the storage engine, making database write operations faster by a magnitude\n\n* Staged synchronization technique, allowing very fast synchronization",
-  "upstreamVersion": "v2021.08.04",
+  "upstreamVersion": "v2021.08.05",
   "upstreamRepo": "ledgerwatch/erigon",
   "upstreamArg": "UPSTREAM_VERSION",
   "type": "service",
@@ -11,7 +11,9 @@
   "categories": ["Developer tools"],
   "architectures": ["linux/amd64"],
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
-  "contributors": ["Eduardo Antuña <eduadiez@gmail.com> (https://github.com/eduadiez)"],
+  "contributors": [
+    "Eduardo Antuña <eduadiez@gmail.com> (https://github.com/eduadiez)"
+  ],
   "links": {
     "endpoint": "http://rpcdaemon.erigon.dappnode:8545",
     "homepage": "https://github.com/ledgerwatch/erigon"
