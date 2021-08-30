@@ -22,11 +22,11 @@ services:
       context: rpcdaemon
       args:
         UPSTREAM_VERSION: v2021.08.05
+    pid: "service:erigon"
     environment:
       RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
     restart: unless-stopped
     volumes:
-      - "rpc:/home/erigon/.local/share"
+      - "data:/home/erigon/.local/share"
 volumes:
   data: {}
-  rpc: {}
