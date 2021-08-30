@@ -8,5 +8,3 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod u+x /usr/bin/entrypoint.sh
 
 ENTRYPOINT [ "/usr/bin/entrypoint.sh" ]
-
-
