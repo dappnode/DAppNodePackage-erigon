@@ -9,9 +9,9 @@
 
 DATADIR="/home/erigon/.local/share"
 
-if [ -d "$DATADIR/erigon/chaindata" ]; then
-    mv "$DATADIR/erigon/chaindata" "$DATADIR"
-fi
+# if [ -d "$DATADIR/erigon/chaindata" ]; then
+  #  mv "$DATADIR/erigon/chaindata" "$DATADIR"
+# fi
 
 
 CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
