@@ -9,20 +9,9 @@
 
 DATADIR="/home/erigon/.local/share"
 
-# if [ -d "$DATADIR/erigon/chaindata" ]; then
-  #  mv "$DATADIR/erigon/chaindata" "$DATADIR"
-# fi
-
-
-CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
-if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
-    touch $CONTAINER_ALREADY_STARTED
-    echo "-- First container startup --"
-    # Remove old data
-    rm /home/erigon/.local/share/chaindata/*
-else
-    echo "-- Not first container startup --"
-fi
+ if [ -d "$DATADIR/erigon/chaindata" ]; then
+    mv "$DATADIR/erigon/chaindata" "$DATADIR"
+ fi
 
 ##########
 # Erigon #
@@ -37,3 +26,14 @@ exec erigon --datadir=${DATADIR} \
     --pprof.addr=0.0.0.0 \
     --pprof.port=6061 \
     ${ERIGON_EXTRA_OPTS}
+
+erigon logs | head -n 20 > initlogs.txt 
+
+## The old version 
+if grep -e "version=3.0.0" ./initlogs.txt
+then
+    echo ""
+    rm /home/erigon/.local/share/chaindata/*
+else
+    echo ""
+fi
