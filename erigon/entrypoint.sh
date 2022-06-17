@@ -13,6 +13,17 @@ if [ -d "$DATADIR/erigon/chaindata" ]; then
     mv "$DATADIR/erigon/chaindata" "$DATADIR"
 fi
 
+
+CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
+if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
+    touch $CONTAINER_ALREADY_STARTED
+    echo "-- First container startup --"
+    # Remove old data
+    rm /home/erigon/.local/share/chaindata/*
+else
+    echo "-- Not first container startup --"
+fi
+
 ##########
 # Erigon #
 ##########
