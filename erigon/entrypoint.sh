@@ -29,8 +29,8 @@ exec erigon --datadir=${DATADIR} \
 
 erigon logs | head -n 20 > initlogs.txt 
 
-## The old version 
-if grep -e "version=3.0.0" ./initlogs.txt
+## Check if a re-sync is needed
+if grep -e "migrator.VerifyVersion: cannot upgrade major DB version" ./initlogs.txt
 then
     echo ""
     rm /home/erigon/.local/share/chaindata/*
