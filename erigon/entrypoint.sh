@@ -13,6 +13,23 @@ if [ -d "$DATADIR/erigon/chaindata" ]; then
     mv "$DATADIR/erigon/chaindata" "$DATADIR"
 fi
 
+############################
+# Check database migration #
+############################
+# UPSTREAM: v2022.04.01
+# DAPPNODE: v0.1.22 to v0.1.23
+
+## Run for 5 secs to check the logs if we found:
+## [EROR] [06-27|17:36:39.664] Erigon startup err="migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing"
+## We need to re-sync
+
+timeout 5 erigon --datadir=/home/erigon/.local/share 2>/tmp/initlog.txt
+if grep -e "migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing" /tmp/initlog.txt; then
+    echo "Cannot upgrade major DB version for more than 1 version from 3 to 6"
+    echo "The database will be deleted as it needs to be resynchronized..."
+    rm /home/erigon/.local/share/chaindata/*
+fi
+
 ##########
 # Erigon #
 ##########

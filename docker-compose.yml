@@ -1,11 +1,11 @@
 version: "3.4"
 services:
   erigon:
-    image: "erigon.erigon.dnp.dappnode.eth:0.1.0"
+    image: "erigon.erigon.dnp.dappnode.eth:0.1.8"
     build:
       context: erigon
       args:
-        UPSTREAM_VERSION: v2022.04.04
+        UPSTREAM_VERSION: v2022.06.06
     ports:
       - 30303/tcp
       - 30303/udp
@@ -17,11 +17,11 @@ services:
     environment:
       ERIGON_EXTRA_OPTS: ""
   rpcdaemon:
-    image: "rpcdaemon.erigon.dnp.dappnode.eth:0.1.0"
+    image: "rpcdaemon.erigon.dnp.dappnode.eth:0.1.8"
     build:
       context: rpcdaemon
       args:
-        UPSTREAM_VERSION: v2022.04.04
+        UPSTREAM_VERSION: v2022.06.06
     pid: "service:erigon"
     environment:
       RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
