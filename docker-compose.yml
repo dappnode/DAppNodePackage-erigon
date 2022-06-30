@@ -7,26 +7,13 @@ services:
       args:
         UPSTREAM_VERSION: v2022.06.06
     ports:
-      - 30303/tcp
-      - 30303/udp
-      - 30304/tcp
-      - 30304/udp
-    restart: unless-stopped
+      - "30304:30304/tcp"
+      - "30304:30304/udp"
     volumes:
       - "data:/home/erigon/.local/share"
     environment:
-      ERIGON_EXTRA_OPTS: ""
-  rpcdaemon:
-    image: "rpcdaemon.erigon.dnp.dappnode.eth:0.1.8"
-    build:
-      context: rpcdaemon
-      args:
-        UPSTREAM_VERSION: v2022.06.06
-    pid: "service:erigon"
-    environment:
-      RPCDAEMON_EXTRA_OPTS: "--http.api=eth,debug,net,web3"
+      P2P_PORT: 30304
+      ERIGON_EXTRA_OPTS: "--http.api=eth,erigon,web3,net,debug,trace,txpool"
     restart: unless-stopped
-    volumes:
-      - "data:/home/erigon/.local/share"
 volumes:
   data: {}

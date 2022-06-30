@@ -8,15 +8,5 @@
         "targets": [
             "erigon.erigon.dappnode:6060"
         ]
-    },
-    {
-        "labels": {
-            "package": "rpcdaemon.erigon.dnp.dappnode.eth",
-            "service": "rpcdaemon.erigon.dappnode",
-            "__metrics_path__": "/debug/metrics/prometheus"
-        },
-        "targets": [
-            "rpcdaemon.erigon.dappnode:6060"
-        ]
     }
 ]
