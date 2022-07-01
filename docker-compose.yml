@@ -7,12 +7,12 @@ services:
       args:
         UPSTREAM_VERSION: v2022.06.06
     ports:
-      - "30304:30304/tcp"
-      - "30304:30304/udp"
+      - "30306:30306/tcp"
+      - "30306:30306/udp"
     volumes:
       - "data:/home/erigon/.local/share"
     environment:
-      P2P_PORT: 30304
+      P2P_PORT: 30306
       ERIGON_EXTRA_OPTS: "--http.api=eth,erigon,web3,net,debug,trace,txpool"
     restart: unless-stopped
 volumes:
