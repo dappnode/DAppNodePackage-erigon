@@ -48,5 +48,5 @@ exec erigon --datadir=${DATADIR} \
     --pprof \
     --pprof.addr=0.0.0.0 \
     --pprof.port=6061 \
-    --port=${PORT} \
+    --port=${P2P_PORT} \
     ${ERIGON_EXTRA_OPTS}
