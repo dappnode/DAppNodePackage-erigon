@@ -1,4 +1,4 @@
-version: "3.4"
+version: "3.5"
 services:
   erigon:
     image: "erigon.erigon.dnp.dappnode.eth:0.1.8"
@@ -15,5 +15,13 @@ services:
       P2P_PORT: 30315
       ERIGON_EXTRA_OPTS: "--http.api=eth,erigon,web3,net,debug,trace,txpool"
     restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    deploy:
+      resources:
+        limits:
+          memory: 16384M
 volumes:
   data: {}
