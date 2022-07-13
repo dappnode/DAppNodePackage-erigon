@@ -20,7 +20,7 @@
     "homepage": "https://github.com/ledgerwatch/erigon"
   },
   "mainService": "erigon",
-  "license": "GLP-3.0",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dappnode/DAppNodePackage-erigon.git"
