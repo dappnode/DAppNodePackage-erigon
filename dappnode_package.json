@@ -3,7 +3,7 @@
   "version": "0.1.8",
   "shortDescription": "Ethereum client on the efficiency frontier, written in Go",
   "description": "Erigon is a next generation Ethereum client that introduces several new concepts:\n\n* A modular client design, enabling parallelized development of the client\n\n* New (`flat`) model of storing Ethereum state, allowing a lower disk footprint\n\n* Preprocessing of data outside of the storage engine, making database write operations faster by a magnitude\n\n* Staged synchronization technique, allowing very fast synchronization",
-  "upstreamVersion": "v2022.07.02",
+  "upstreamVersion": "v2022.07.03",
   "upstreamRepo": "ledgerwatch/erigon",
   "upstreamArg": "UPSTREAM_VERSION",
   "type": "service",
