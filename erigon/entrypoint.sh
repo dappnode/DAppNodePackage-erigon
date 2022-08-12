@@ -53,4 +53,4 @@ exec erigon --datadir=${DATADIR} \
     --engine.port=8551 \
     --engine.addr=0.0.0.0 \
     --authrpc.vhosts=* \
-    ${ERIGON_EXTRA_OPTS}
+    ${EXTRA_OPTs}
