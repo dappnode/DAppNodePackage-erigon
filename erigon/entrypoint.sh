@@ -49,4 +49,8 @@ exec erigon --datadir=${DATADIR} \
     --pprof.addr=0.0.0.0 \
     --pprof.port=6061 \
     --port=${P2P_PORT} \
-    ${ERIGON_EXTRA_OPTS}
+    --authrpc.jwtsecret=/jwtsecret \
+    --engine.port=8551 \
+    --engine.addr=0.0.0.0 \
+    --authrpc.vhosts=* \
+    ${EXTRA_OPTs}

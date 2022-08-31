@@ -16,7 +16,8 @@
     "Pablo Mendez <mendez4a@gmail.com> (https://github.com/pablomendezroyo)"
   ],
   "links": {
-    "endpoint": "http://erigon.dappnode:8545",
+    "api": "http://erigon.dappnode:8545",
+    "api-engine": "http://erigon.dappnode:8511",
     "homepage": "https://github.com/ledgerwatch/erigon"
   },
   "mainService": "erigon",
