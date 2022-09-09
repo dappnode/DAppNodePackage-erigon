@@ -17,7 +17,7 @@
   ],
   "links": {
     "api": "http://erigon.dappnode:8545",
-    "api-engine": "http://erigon.dappnode:8511",
+    "apiEngine": "http://erigon.dappnode:8511",
     "homepage": "https://github.com/ledgerwatch/erigon"
   },
   "mainService": "erigon",
