@@ -25,7 +25,7 @@ fi
 ## [EROR] [06-27|17:36:39.664] Erigon startup err="migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing"
 ## We need to re-sync
 
-timeout -s 9 5 erigon --datadir=/home/erigon/.local/share 2>/tmp/initlog.txt
+timeout -s 9 5 erigon -datadir=/home/erigon/.local/share ${EXTRA_OPTs} 2>/tmp/initlog.txt
 if grep -e "migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing" /tmp/initlog.txt; then
     echo "Cannot upgrade major DB version for more than 1 version from 3 to 6"
     echo "The database will be deleted as it needs to be resynchronized..."
