@@ -36,5 +36,11 @@
       "serviceName": "erigon",
       "port": 8545
     }
+  ],
+  "globalEnvs": [
+    {
+      "envs": ["CONSENSUS_CLIENT_MAINNET"],
+      "services": ["erigon"]
+    }
   ]
 }
