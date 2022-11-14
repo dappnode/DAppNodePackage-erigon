@@ -22,6 +22,9 @@
   },
   "mainService": "erigon",
   "license": "GPL-3.0",
+  "requirements": {
+    "minimumDappnodeVersion": "0.2.60"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dappnode/DAppNodePackage-erigon.git"
@@ -35,6 +38,12 @@
       "description": "JSON RPC endpoint for Erigon mainnet",
       "serviceName": "erigon",
       "port": 8545
+    }
+  ],
+  "globalEnvs": [
+    {
+      "envs": ["CONSENSUS_CLIENT_MAINNET"],
+      "services": ["erigon"]
     }
   ]
 }
