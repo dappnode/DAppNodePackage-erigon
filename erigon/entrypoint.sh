@@ -1,5 +1,32 @@
 #!/bin/sh
 
+case "$_DAPPNODE_GLOBAL_CONSENSUS_CLIENT_MAINNET" in
+"prysm.dnp.dappnode.eth")
+    echo "Using prysm.dnp.dappnode.eth"
+    JWT_PATH="/security/prysm/jwtsecret.hex"
+    ;;
+"lighthouse.dnp.dappnode.eth")
+    echo "Using lighthouse.dnp.dappnode.eth"
+    JWT_PATH="/security/lighthouse/jwtsecret.hex"
+    ;;
+"teku.dnp.dappnode.eth")
+    echo "Using teku.dnp.dappnode.eth"
+    JWT_PATH="/security/teku/jwtsecret.hex"
+    ;;
+"nimbus.dnp.dappnode.eth")
+    echo "Using nimbus.dnp.dappnode.eth"
+    JWT_PATH="/security/nimbus/jwtsecret.hex"
+    ;;
+*)
+    echo "Using default"
+    JWT_PATH="/security/default/jwtsecret.hex"
+    ;;
+esac
+
+# Print the jwt to the dappmanager
+JWT=$(cat $JWT_PATH)
+curl -X POST "http://my.dappnode/data-send?key=jwt&data=${JWT}"
+
 #####################
 # Datadir migration #
 #####################
@@ -23,7 +50,7 @@ fi
 
 ## Run for 5 secs to check the logs if we found:
 ## [EROR] [06-27|17:36:39.664] Erigon startup err="migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing"
-## We need to re-sync
+## We need to re-sync
 
 timeout -s 9 5 erigon --datadir=/home/erigon/.local/share ${EXTRA_OPTs} 2>/tmp/initlog.txt
 if grep -e "migrator.VerifyVersion: cannot upgrade major DB version for more than 1 version from 3 to 6, use integration tool if you know what you are doing" /tmp/initlog.txt; then
@@ -40,7 +67,6 @@ exec erigon --datadir=${DATADIR} \
     --http.addr=0.0.0.0 \
     --http.vhosts=* \
     --http.corsdomain=* \
-    --externalcl \
     --ws \
     --private.api.addr=0.0.0.0:9090 \
     --metrics \
@@ -50,9 +76,8 @@ exec erigon --datadir=${DATADIR} \
     --pprof.addr=0.0.0.0 \
     --pprof.port=6061 \
     --port=${P2P_PORT} \
-    --authrpc.jwtsecret=/jwtsecret \
+    --authrpc.jwtsecret=${JWT_PATH} \
     --authrpc.addr 0.0.0.0 \
     --authrpc.vhosts=* \
+    --externalcl \
     ${EXTRA_OPTs}
-
-#    --engine.port=8551 \
