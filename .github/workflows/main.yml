@@ -17,7 +17,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: npx @dappnode/dappnodesdk build --provider remote
+      - run: npx @dappnode/dappnodesdk build --provider remote --skip_save
+      
+  e2e-test:
+    runs-on: mainnet
+    needs: build-test
+    if: github.event_name != 'push'
+    name: End to end tests
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://erigon.dappnode:8545 --network mainnet
 
   release:
     name: Release
