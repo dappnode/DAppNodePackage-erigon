@@ -1,9 +1,9 @@
 {
   "name": "erigon.dnp.dappnode.eth",
-  "version": "0.1.8",
+  "version": "0.1.40",
   "shortDescription": "Ethereum client on the efficiency frontier, written in Go",
   "description": "Erigon is a next generation Ethereum client that introduces several new concepts:\n\n* A modular client design, enabling parallelized development of the client\n\n* New (`flat`) model of storing Ethereum state, allowing a lower disk footprint\n\n* Preprocessing of data outside of the storage engine, making database write operations faster by a magnitude\n\n* Staged synchronization technique, allowing very fast synchronization",
-  "upstreamVersion": "v2.42.0",
+  "upstreamVersion": "v2.45.1",
   "upstreamRepo": "ledgerwatch/erigon",
   "upstreamArg": "UPSTREAM_VERSION",
   "type": "service",
