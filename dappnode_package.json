@@ -43,7 +43,7 @@
       "name": "Erigon JSON RPC (WS)",
       "description": "JSON RPC WebSocket endpoint for Erigon mainnet",
       "serviceName": "erigon",
-      "port": 8545
+      "port": 8546
     }
   ],
   "globalEnvs": [
