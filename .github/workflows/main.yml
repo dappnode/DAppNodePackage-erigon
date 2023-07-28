@@ -16,15 +16,24 @@ jobs:
     if: github.event_name != 'push'
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - run: npx @dappnode/dappnodesdk build --provider remote
+        uses: actions/checkout@v3
+      - run: npx @dappnode/dappnodesdk build --provider remote --skip_save
+      
+  e2e-test:
+    runs-on: mainnet
+    needs: build-test
+    if: github.event_name != 'push'
+    name: End to end tests
+    steps:
+      - uses: actions/checkout@v3
+      - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://erigon.dappnode:8545 --network mainnet
 
   release:
     name: Release
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || github.event_name == 'repository_dispatch'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Publish
         run: npx @dappnode/dappnodesdk publish patch --dappnode_team_preset --timeout 1h
         env:
