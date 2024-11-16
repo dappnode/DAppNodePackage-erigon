@@ -1,6 +1,6 @@
 ARG UPSTREAM_VERSION
 
-FROM thorax/erigon:${UPSTREAM_VERSION}
+FROM erigontech/erigon:${UPSTREAM_VERSION}
 
 USER root
 
